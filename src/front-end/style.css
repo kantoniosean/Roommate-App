@@ -11,6 +11,7 @@
 
 .text-read {
     background-color: #F28D8D;
+    position: relative;
     margin-top: 30px;
     margin-left: 200px;
     margin-right: 200px;
@@ -27,6 +28,14 @@ input {
     background-color: #F2EFE4;
     border: none;
     border-radius: 8px;
+    color: #F28D8D;
+}
+
+.acc-button {
+    padding: 14px 60px;
+    font-family: Trebuchet MS, sans-serif;
+    color: #F28D8D;
+    font-size: 15px;
 }
 
 .picture {
@@ -38,7 +47,12 @@ input {
     border-radius: 10px;
 }
 
+u {
+    color: #F2EFE4;
+}
+
 label {
     border-radius: 100px;
 }
 
+/* Registration Page CSS */

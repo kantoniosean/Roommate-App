@@ -20,10 +20,16 @@ const UserSchema = new mongoose.Schema({
     results: {
         type: [String],
         required: false,
-    },
-    roommates: {
+    }
+    /*roommates: {
         type: [User],
         required: false,
-    }
-
+    },
+    chores: {
+        type: [Chore],
+        required: false,
+    }*/
 });
+
+const UserModel = mongoose.model("users", UserSchema)
+module.exports = UserModel;

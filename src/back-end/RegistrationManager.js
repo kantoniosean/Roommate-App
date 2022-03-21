@@ -1,7 +1,2 @@
-import React from 'react'
+const server = require('./Server');
 
-function RegistrationManager() {
-
-}
-
-export default RegistrationManager

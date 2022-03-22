@@ -36,14 +36,13 @@ getUsers();
 getUser("jdoe");
 
 function login() {
-    app.use('/login', (req, res) => {
+    app.use("/login", (req, res) => {
         res.send({
             id: "qyork"
         });
     });
 }
 
-// TODO: Users model is done, still have to figure out how to use post from mongos api. 
 // Incorporate methods in Server.js that other classes will use. Ex/ RegistrationManager will post new users to the DB and
 // get current Users to see who is logging in. RegManager should be the only one using get, as it will pass the User object to
 // other classes that need it. Later on ChoreManager will need to use post/edit to change Chores list in User's field.

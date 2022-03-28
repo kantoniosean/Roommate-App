@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const chore = require('../Chore');
+const Chore = require('../Chore');
+const User = require('../User');
 
 const UserSchema = new mongoose.Schema({
     firstName: {
@@ -16,15 +17,13 @@ const UserSchema = new mongoose.Schema({
     },
     results: {
         type: [String],
-    }
-    /*roommates: {
+    },
+    roommates: {
         type: [User],
-        required: false,
     },
     chores: {
         type: [Chore],
-        required: false,
-    }*/
+    }
 });
 
 const UserModel = mongoose.model("users", UserSchema)

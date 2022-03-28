@@ -10,42 +10,35 @@ app.use(cors);
 
 mongoose.connect("mongodb+srv://qyork:Caddie5587@cluster0.fqy0m.mongodb.net/Roommate-App?retryWrites=true&w=majority");
 
-function getUsers() {
-    app.get("/getUsers", (req, res) => {
-        UserModel.find({}, (err, result) => {
-            if (err)
-                res.json(err);
-            else
-                res.json(result);
-        });
+app.get("/getUsers", (req, res) => {
+    UserModel.find({}, (err, result) => {
+        if (err)
+            res.json(err);
+        else
+            res.json(result);
     });
-}
+});
 
-function getUser(userId) {
-    app.get("/getUser", (req, res) => {
-        UserModel.find({ id: userId }, (err, result) => {
-            if (err)
-                res.json(err);
-            else
-                res.json(result);
-        });
+app.get("/getUser", (req, res) => {
+    UserModel.find({ id: req.body }, (err, result) => {
+        if (err)
+            postNewUser(req.body); // user doesn't exist, post new user to DB
+        else {
+            res.json(result);
+            // user has been got, so call a load() function that tells client what to load in the finder and chores list section
+        }
     });
-}
+});
 
-getUsers();
-getUser("jdoe");
+// Server handles working with DB and Client Side. I can getUsers from DB and also post new users added from client.
+// when client logs in with email and password, we get those attributes, look for them in the DB, and update accordingly
+// if client is new (not in DB), we add them to the DB and load a default view of the app (asking them to answer questions on RoommateFinder and an empty ChoreList)
+// if client exists, we load app based on their chore list and roommate questions. based on their answers, we pull diff users from the DB and load them to RoommateFinder
 
-function login() {
-    app.use("/login", (req, res) => {
-        res.send({
-            id: "qyork"
-        });
-    });
-}
+// server gets a new event with login, gets email and pw, looks for user, and sends info back to the client side on how to render.
+// this may eliminate a need for reg manager.
 
-// Incorporate methods in Server.js that other classes will use. Ex/ RegistrationManager will post new users to the DB and
-// get current Users to see who is logging in. RegManager should be the only one using get, as it will pass the User object to
-// other classes that need it. Later on ChoreManager will need to use post/edit to change Chores list in User's field.
+// what classes need access to DB: ChoreManager for adding and deleting chores from user list, RoommateManager for displaying possible roommates based off Users questions
 
 app.post("/createUser", async (req, res) => {
     const user = req.body;
@@ -55,8 +48,16 @@ app.post("/createUser", async (req, res) => {
     res.json(user)
 });
 
+function postNewUser(userId) {
+    app.post("/createUser", async (req, res) => {
+        const id = userId
+        const newUser = new UserModel(id);
+        await newUser.save();
+    
+        res.json(id)
+    });
+}
+
 app.listen(3001, () => {
     console.log("Server is running")
 });
-
-module.exports = { getUser }

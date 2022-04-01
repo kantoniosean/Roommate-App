@@ -6,6 +6,7 @@ class User {
         this.results = results;
         this.roommates = roommates;
         this.chores = chores;
+        this.score;
     }
 
     getFirst() { return this.firstName };
@@ -15,6 +16,7 @@ class User {
     getResults() { return this.results };
     getRoommates() { return this.roommates };
     getChores() { return this.chores };
+    getScore() {return this.score };
     
     addRoommate(roommate) {
         this.roommates.push(roommate);
@@ -41,7 +43,18 @@ class User {
             }
         }
     }
-
     
+	generateScore() {
+		let total = 0;
+		let currentScore = 0;
+
+		for(let i = 0; i < questions.length; i++) {
+			total += questions[i].getValue();
+
+			currentScore += questions[i].compare(this.results[i]);
+		}
+        this.score = ((currentScore+0.0)/total*100).toFixed();
+		return this.score;
+	}
 
 }

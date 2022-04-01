@@ -8,21 +8,24 @@ const http = require('http');
 app.use(express.json());
 app.use(cors);
 
+
+
 mongoose.connect("mongodb+srv://qyork:Caddie5587@cluster0.fqy0m.mongodb.net/Roommate-App?retryWrites=true&w=majority");
 
 app.get("/getUsers", (req, res) => {
     UserModel.find({}, (err, result) => {
         if (err)
             res.json(err);
-        else
+        else {
             res.json(result);
+        }
     });
 });
 
 app.get("/getUser", (req, res) => {
     UserModel.find({ id: req.body }, (err, result) => {
         if (err)
-            postNewUser(req.body); // user doesn't exist, post new user to DB
+            res.json(err);
         else {
             res.json(result);
             // user has been got, so call a load() function that tells client what to load in the finder and chores list section

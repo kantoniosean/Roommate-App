@@ -13,8 +13,6 @@ function LoginPage() {
     const [user, setUser] = useState([]);
     const [inputVal, setInputVal] = useState('');
 
-    
-
     let user1 = (userId) => {
         UserModel.find({ id : userId }, (error, data) => {
             if (error)

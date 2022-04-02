@@ -34,7 +34,7 @@ function LoginPage() {
             type="id" id='id' value = {inputVal} onChange = {e =>
             setInputVal(e.target.value)}>
             </input>
-            <button onClick = {user1(inputVal)}> Submit </button>
+            <button type='submit' onClick = {user1(inputVal)}> Submit </button>
             <br></br>
             <br></br>
             <label>enter password: </label>
@@ -43,7 +43,7 @@ function LoginPage() {
             <br></br>
             <input className="acc-button" type="submit" id="button" value="Login" />
             </form>
-            <h4>Don't have an account? <a href='RegistrationPage.js'><u>Sign Up</u></a></h4>
+            <h4>Don't have an account? <a href='/RegistrationPage'><u>Sign Up</u></a></h4>
         </div>
         <img src={pic} className='picture' alt="picture"/>
         </>

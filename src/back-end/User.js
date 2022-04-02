@@ -23,7 +23,7 @@ class User {
     }
 
     removeRoommate(roommate) {
-        for (i = 0; i < this.roommates.length; i++) {
+        for (let i = 0; i < this.roommates.length; i++) {
             if (this.roommates[i].id === roommate.id) {
                 this.roommates.splice(i, 1);
                 return;
@@ -36,7 +36,7 @@ class User {
     }
 
     removeChore(chore) {
-        for (i = 0; i < this.chores.length; i++) {
+        for (let i = 0; i < this.chores.length; i++) {
             if (this.chores[i].id === chore.id) {
                 this.chores.splice(i, 1);
                 return;

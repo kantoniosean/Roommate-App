@@ -1,5 +1,5 @@
 class User {
-    User(firstName, lastName, id, email, [results], [roommates], [chores]) {
+    constructor(firstName, lastName, id, email, [results], [roommates], [chores]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
@@ -53,7 +53,7 @@ class User {
 
 			currentScore += questions[i].compare(this.results[i]);
 		}
-        this.score = ((currentScore+0.0)/total*100).toFixed();
+        	this.score = ((currentScore+0.0)/total*100).toFixed();
 		return this.score;
 	}
 

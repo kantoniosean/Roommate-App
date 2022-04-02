@@ -56,3 +56,26 @@ label {
 }
 
 /* Registration Page CSS */
+
+.registration {
+    position: absolute;
+    color: #F2EFE4;
+    left: 15%;
+    top: 20%;
+    font-size: 30px;
+    background-color: #F28D8D;
+    border-radius: 10px;
+    padding: 50px 70px;
+    font-family: Trebuchet MS, sans-serif;
+}
+
+.registration-input {
+    background-color: #F2EFE4;
+    border: none;
+    border-radius: 8px;
+    color: #F28D8D;
+    cursor: pointer;
+    width: 100%;
+    padding-top: 5px;
+    font-size: 15px;
+}

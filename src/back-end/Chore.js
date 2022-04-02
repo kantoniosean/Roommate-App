@@ -3,10 +3,10 @@ import React from 'react'
 class Chore {
 	
 	constructor(name) {
-    	this.name = name; 		//Name of the chore
-    	this.desc = ""; 		//Note or description of the chore
-    	this.handler = ""; 		//Person tasked to the chore
-    	this.completed = false; //Completion status of the chore
+		this.name = name; 		//Name of the chore
+		this.desc = ""; 		//Note or description of the chore
+		this.handler = ""; 		//Person tasked to the chore
+		this.completed = false; //Completion status of the chore
 	}
 	//Setters
 	setName(newName) {
@@ -21,7 +21,7 @@ class Chore {
 
 	}
 
-    setHandler(newHand) {
+    	setHandler(newHand) {
 
 		this.handler = newHand;
 

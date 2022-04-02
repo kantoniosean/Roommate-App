@@ -8,8 +8,6 @@ const http = require('http');
 app.use(express.json());
 app.use(cors);
 
-
-
 mongoose.connect("mongodb+srv://qyork:Caddie5587@cluster0.fqy0m.mongodb.net/Roommate-App?retryWrites=true&w=majority");
 
 app.get("/getUsers", (req, res) => {
@@ -22,16 +20,16 @@ app.get("/getUsers", (req, res) => {
     });
 });
 
-app.get("/getUser", (req, res) => {
-    UserModel.find({ id: req.body }, (err, result) => {
-        if (err)
-            res.json(err);
-        else {
-            res.json(result);
-            // user has been got, so call a load() function that tells client what to load in the finder and chores list section
-        }
-    });
-});
+// let userId = ID grabbed from front end
+let userId = 'jdoe' // example
+UserModel.find( { id : userId}, (error, data) => {
+    if (error)
+        console.log(error)
+    else
+        console.log(data)
+})
+
+
 
 // Server handles working with DB and Client Side. I can getUsers from DB and also post new users added from client.
 // when client logs in with email and password, we get those attributes, look for them in the DB, and update accordingly
@@ -47,19 +45,9 @@ app.post("/createUser", async (req, res) => {
     const user = req.body;
     const newUser = new UserModel(user);
     await newUser.save();
-
     res.json(user)
 });
 
-function postNewUser(userId) {
-    app.post("/createUser", async (req, res) => {
-        const id = userId
-        const newUser = new UserModel(id);
-        await newUser.save();
-    
-        res.json(id)
-    });
-}
 
 app.listen(3001, () => {
     console.log("Server is running")

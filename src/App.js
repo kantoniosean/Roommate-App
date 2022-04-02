@@ -7,7 +7,7 @@ import RegistrationPage from './front-end/RegistrationPage';
 
 function App() {
     return (
-     <LoginPage />
+     <LoginPage></LoginPage>
     )
 }
 

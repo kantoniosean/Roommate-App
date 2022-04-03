@@ -20,16 +20,32 @@ app.get("/getUsers", (req, res) => {
     });
 });
 
-// let userId = ID grabbed from front end
-let userId = 'jdoe' // example
-UserModel.find( { id : userId}, (error, data) => {
-    if (error)
-        console.log(error)
-    else
-        console.log(data)
-})
+app.get("/getUser", (req, res) => {
+    UserModel.findOne({ id: userId }, (err, result) => {
+        if (err)
+            res.json(err);
+        else {
+            res.json(result);
+        }
+    });
+});
 
+app.post("/addRoommate", (req, res) => {
+    const roommateInfo = req.body;
+    // have roommate finder send current user so we know who to add roommate to
+    // let u = currUser;
+    // let roommate = new User(roommateInfo.firstName, roommateInfo.lastName, roommateInfo.id, roommateInfo.email, null, null, null);
+    // decide on creating User in front end or back end
+    // u.addRoommate(roommate);
+});
 
+app.get("/getMatches", (req, res) => {
+    let [users] = UserModel.find({}, (err, result) => {
+        if (err)
+            return null
+    });
+    // users = RoommateManager.matchingUserScores(users);
+});
 
 // Server handles working with DB and Client Side. I can getUsers from DB and also post new users added from client.
 // when client logs in with email and password, we get those attributes, look for them in the DB, and update accordingly

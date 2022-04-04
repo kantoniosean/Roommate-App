@@ -1,19 +1,17 @@
 class User {
-    constructor(firstName, lastName, id, email, [results], [roommates], [chores]) {
+
+    User(firstName, lastName, id, email, [roommates], [chores]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
-        this.results = results;
         this.roommates = roommates;
         this.chores = chores;
-        this.score;
     }
 
     getFirst() { return this.firstName };
     getLast() { return this.lastName };
     getId() { return this.id };
     getEmail() { return this.email };
-    getResults() { return this.results };
     getRoommates() { return this.roommates };
     getChores() { return this.chores };
     getScore() {return this.score };
@@ -43,8 +41,10 @@ class User {
             }
         }
     }
+
     
-	generateScore() {
+    // where is questions being passed in?
+	/*generateScore() {
 		let total = 0;
 		let currentScore = 0;
 
@@ -55,6 +55,6 @@ class User {
 		}
         	this.score = ((currentScore+0.0)/total*100).toFixed();
 		return this.score;
-	}
+	}*/
 
 }

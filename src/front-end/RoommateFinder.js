@@ -1,7 +1,7 @@
 import './RoommateFinder.css';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Axios from "axios";
-
+import Parse from 'parse/dist/parse.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Card } from 'react-bootstrap'
 import { logDOM } from '@testing-library/react';
@@ -11,11 +11,16 @@ function RoommateFinder() {
   const[listOfRoomies, setListOfRoomies] = useState([]);
   const[listOfMatches, setListOfMatches] = useState([]);
 
-  useEffect(() => {
-    Axios.get("http://localhost:3001/getCurrentUser").then((response) => {
-      setCurrentUser(response.data);
-    });
-  });
+  const getCurrentUser = async function () {
+    const currentUser = await Parse.User.current();
+    if (currentUser !== null) {
+      alert(
+        'Success!',
+        `${currentUser.get('username')} is the current user!`,
+      );
+    }
+    return currentUser;
+  };
 
   var json = JSON.parse(currentUser);
   var matches = json["Matches"];
@@ -27,21 +32,20 @@ function RoommateFinder() {
     }).then((response) => {
       setListOfMatches(response.data);
     });
-  });
 
-  if(roomies.length != 0){
-    useEffect(() => {
+    if (currentUser.roommates.length != 0) {
       Axios.post("http://localhost:3001/getRoomies", {
-        roomies
+        listOfRoomies
       }).then((response) => {
         setListOfRoomies(response.data);
       });
-    });
-  }
+    }
+
+  });
 
   const addRoomie = () => {
     Axios.post("http://localhost:3001/addRoomie", {
-      match
+      listOfMatches
     }).then((response) => {
       alert("ROOMIE ADDED"); 
     }); 
@@ -49,9 +53,9 @@ function RoommateFinder() {
   
   const removeRoomie = () => {
     Axios.post("http://localhost:3001/removeRoomie", {
-      roomie
+      listOfRoomies
     }).then((response) => {
-      alter("ROOMIE REMOVED");
+      alert("ROOMIE REMOVED");
     });
    };
 

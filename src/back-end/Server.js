@@ -33,13 +33,13 @@ app.get("/getUser", (req, res) => {
 var currentUser, roomies = [], id; //global vars
 
 //front-end login page should setCurrentUser upon logIn when user enters id
-app.get("/setCurrentUser", (req, res) => {
+/*app.get("/setCurrentUser", (req, res) => {
     currentUser = UserModel.find({"id": req.body});
     
     var json = JSON.parse(currentUser);
     roomies = json["Roomies"];
     id = json["id"];
-});
+});*/
 
 //to be used when frontend needs to access current user (after login)
 app.get("/getCurrentUser", (req, res) => {
@@ -109,7 +109,7 @@ app.post("/removeRoomie", (req, res) => {
     let [removeRoomieRoomies] = json["Roomies"];
     
     for(var i = 0; i < roomies.length; i++){ 
-        if (roomies[i] === removeRoomieId) { 
+        if (roomies[i] === removeRoomieID) {
             roomies.splice(i, 1); 
         }
     }

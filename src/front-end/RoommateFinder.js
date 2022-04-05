@@ -29,7 +29,7 @@ function RoommateFinder() {
     });
   });
 
-  if(roomies.length != 0){
+  if(roomies.length !== 0){
     useEffect(() => {
       Axios.post("http://localhost:3001/getRoomies", {
         roomies
@@ -41,19 +41,19 @@ function RoommateFinder() {
 
   const addRoomie = () => {
     Axios.post("http://localhost:3001/addRoomie", {
-      match
+      matches
     }).then((response) => {
       alert("ROOMIE ADDED"); 
     }); 
   }; 
-  
+
   const removeRoomie = () => {
     Axios.post("http://localhost:3001/removeRoomie", {
-      roomie
+      roomies
     }).then((response) => {
-      alter("ROOMIE REMOVED");
+      alert("ROOMIE REMOVED");
     });
-   };
+   };  
 
   return (
     <body style={{backgroundColor:'#F26666'}}> 

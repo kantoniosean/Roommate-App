@@ -2,8 +2,9 @@ import React from 'react';
 import LoginPage from './front-end/LoginPage';
 import ChoreList from './front-end/ChoreList';
 import RoommateFinder from './front-end/RoommateFinder';
-import Settings from './front-end/Settings';
+import Preferances from './front-end/Preferances';
 import RegistrationPage from './front-end/RegistrationPage';
+import Settings from "./front-end/Settings";
 import { Route, Routes } from 'react-router-dom';
 
 
@@ -14,8 +15,9 @@ function App() {
             <Route path="/" element={<LoginPage />} />
             <Route path="/RegistrationPage" element={<RegistrationPage />} />
             <Route path="/ChoreList" element={<ChoreList />} />
-            <Route path="/Settings" element={<Settings />} />
+            <Route path="/Preferences" element={<Preferances />} />
             <Route path="/RoommateFinder" element={<RoommateFinder />} />
+            <Route path="/Settings" element={<Settings />} />
         </Routes>
      </div>
     )

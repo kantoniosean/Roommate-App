@@ -6,28 +6,28 @@ function RegistrationPage() {
     return(
         <>
         <img src={logo} className="logos" alt="logo" />
-        <form>
+        <form className='registration'>
             <label>first name: </label>
-            <input type="text" />
+            <input className='registration-input' type="text" name='first' />
             <br></br>
             <br></br>
             <label>last name: </label>
-            <input type="text" />
+            <input className='registration-input' type="text" name='last' />
             <br></br>
             <br></br>
             <label>enter email: </label>
-            <input type="email" />
+            <input className='registration-input' type="email" name='email' />
             <br></br>
             <br></br>
             <label>enter password: </label>
-            <input type="password" />
+            <input className='registration-input' type="password" name='password' />
             <br></br>
             <br></br>
             <label>re-enter password: </label>
-            <input type="password" />
+            <input className='registration-input' type="password" name='password' />
             <br></br>
             <br></br>
-            <input type="submit" value="Create Account"/>
+            <input className="acc-button" type="submit" id="button" value="Create Account"/>
         </form>
         </>
     )

@@ -1,5 +1,3 @@
-import React from 'react'
-
 class Chore {
 	
 	constructor(name) {

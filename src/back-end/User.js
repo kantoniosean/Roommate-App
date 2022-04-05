@@ -46,16 +46,15 @@ class User {
     }
 
     
-	setScore([questions]) {
+	setScore() {
 		let total = 0;
 		let currentScore = 0;
 
-		for(let i = 0; i < questions.length; i++) {
-			total += questions[i].getValue();
-
-			currentScore += questions[i].compare(this.results[i]);
+		for(let i = 0; i < this.results.length; i++) {
+			total += 1
+			currentScore += (ans) ? 1 : 0;
 		}
-        	this.score = ((currentScore+0.0)/total*100).toFixed();
+		this.score = ((currentScore+0.0)/total*100).toFixed();
 		return this.score;
 	}
 

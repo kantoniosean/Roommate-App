@@ -10,6 +10,13 @@ app.use(cors);
 
 mongoose.connect("mongodb+srv://qyork:Caddie5587@cluster0.fqy0m.mongodb.net/Roommate-App?retryWrites=true&w=majority");
 
+app.post("/createUser", async (req, res) => {
+    //assume frontend is sending some sort of body object
+    const user = req.body;
+    const newUser = new userModel(user);
+    await newUser.save();
+});
+
 app.get("/getUsers", (req, res) => {
     UserModel.find({}, (err, result) => {
         if (err)

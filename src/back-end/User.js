@@ -1,11 +1,14 @@
 class User {
 
-    User(firstName, lastName, id, email, [roommates], [chores]) {
+    User(firstName, lastName, id, email, [results], [roommates], [chores]) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.id = id;
+        this.email = email;
+        this.results = results;
         this.roommates = roommates;
         this.chores = chores;
+        this.setScore(results);
     }
 
     getFirst() { return this.firstName };
@@ -43,8 +46,7 @@ class User {
     }
 
     
-    // where is questions being passed in?
-	/*generateScore() {
+	setScore([questions]) {
 		let total = 0;
 		let currentScore = 0;
 
@@ -55,6 +57,6 @@ class User {
 		}
         	this.score = ((currentScore+0.0)/total*100).toFixed();
 		return this.score;
-	}*/
+	}
 
 }

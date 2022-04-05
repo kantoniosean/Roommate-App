@@ -23,6 +23,9 @@ const UserSchema = new mongoose.Schema({
     },
     chores: {
         type: [Chore],
+    },
+    score: {
+        type: Number
     }
 });
 

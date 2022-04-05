@@ -33,31 +33,31 @@ function RoommateFinder() {
       setListOfMatches(response.data);
     });
 
-    if (currentUser.roommates.length != 0) {
+if (currentUser.roommates.length != 0) {
       Axios.post("http://localhost:3001/getRoomies", {
         listOfRoomies
       }).then((response) => {
         setListOfRoomies(response.data);
       });
     }
-
   });
 
-  const addRoomie = () => {
-    Axios.post("http://localhost:3001/addRoomie", {
-      listOfMatches
-    }).then((response) => {
+const addRoomie = () => {
+  Axios.post("http://localhost:3001/addRoomie", {
+     listOfMatches
+   }).then((response) => {
       alert("ROOMIE ADDED"); 
-    }); 
-  }; 
-  
-  const removeRoomie = () => {
-    Axios.post("http://localhost:3001/removeRoomie", {
+   }); 
+}; 
+
+
+const removeRoomie = () => {
+   Axios.post("http://localhost:3001/removeRoomie", {
       listOfRoomies
     }).then((response) => {
       alert("ROOMIE REMOVED");
-    });
-   };
+   });
+ };  
 
   return (
     <body style={{backgroundColor:'#F26666'}}> 

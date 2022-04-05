@@ -30,96 +30,29 @@ app.get("/getUser", (req, res) => {
     });
 });
 
-var currentUser, roomies = [], id; //global vars
-
-//front-end login page should setCurrentUser upon logIn when user enters id
-app.get("/setCurrentUser", (req, res) => {
-    currentUser = UserModel.find({"id": req.body});
-    
-    var json = JSON.parse(currentUser);
-    roomies = json["Roomies"];
-    id = json["id"];
-});
-
-//to be used when frontend needs to access current user (after login)
-app.get("/getCurrentUser", (req, res) => {
-    res.json(currentUser);
-});
-
-//to be used when frontend needs to acces current user's current roomies' JSON objects
-app.get("/getRoomies", (req, res) => {
-    roomies = req.body; //front-end sends string array of currentUser's current roommates
-    
-    var roomieList = []; //storage for JSON objects of all current roomie's
-    
-    for(var i = 0; i < roomies.length; i++){
-        var temp = UserModel.find({"id": roomies[i]}); //finds current roomie's JSON object in database
-        roomieList.push(temp); 
-    }
-    
-    res.json(roomieList); //send front-end list of all current roommate's JSON objects
-});
-
-//to be used when front-end needs list of currentUser's matches' JSON objects - same algorithm as getRoomies
-app.get("/getMatches", (req, res) => {
-    /*let [users] = UserModel.find({}, (err, result) => {
-        if (err)
-            return null
-    }); */
-    // users = RoommateManager.matchingUserScores(users);
-    
-    var matches = req.body; //front-end sends string array of currentUser's matches
-    var matchList = []; 
-    
-    for(var i = 0; i < matches.length; i++){
-        var temp = UserModel.find({"id": matches[i]});
-        matchList.push(temp);
-    }
-    res.json(matchList);
-});
-
+//the only way i found to update currentUser roomies is to update entire object keeping everything the same besides the newRoomies
 app.post("/addRoomie", (req, res) => {
-    const newRoomie = req.body; //front-end will send JSON user object of newRoomie
-    
-    let json = JSON.parse(newRoomie); 
-    let newRoomieId = json["id"]; //get id field 
-    let [newRoomieRoomies] = json["Roomies"]; //get roomie field
-    
-    //update currentUser's roomies
-    roomies.push(newRoomieId); 
-    UserModel.insertOne({"id": id}, {"Roomies": roomies});
-    
-    //update newRoomie's roomies
-    newRoomieRoomies.push(id);
-    UserModel.insertOne({"id": newRoomie}, {"Roomies": newRoomieRoomies});
-        
-    // const roommateInfo = req.body;
-    // have roommate finder send current user so we know who to add roommate to
-    // let u = currUser; 
-    // let roommate = new User(roommateInfo.firstName, roommateInfo.lastName, roommateInfo.id, roommateInfo.email, null, null, null);
-    // decide on creating User in front end or back end
-    // u.addRoommate(roommate);
-});
-
-app.post("/removeRoomie", (req, res) => {
-    var removeRoomie = req.body; //front-end sends current roomie JSON object 
-    
-    var json = JSON.parse(removeRoomie);
-    let removeRoomieID = json["id"];
-    let [removeRoomieRoomies] = json["Roomies"];
-    
-    for(var i = 0; i < roomies.length; i++){ 
-        if (roomies[i] === removeRoomieId) { 
-            roomies.splice(i, 1); 
+    console.log("req.body", req.body);
+    var _id = req.body._id;
+    var currentUser = {
+        name: req.body.name,
+        username: req.body.username,
+        roomie: req.body.newRoomies,
+        matches: req.body.matches,
+        preferences: req.body.preferences,
+    };
+    UserModel.findByIdAndUpdate(_id, currentUser, { new: true }, function(
+        err,
+        currentUser
+      ) {
+        if (err) {
+          console.log("err", err);
+          res.status(500).send(err);
+        } else {
+          console.log("success");
+          res.send(currentUser);
         }
-    }
-    for(var i = 0; i < removeRoomieRoomies.length; i++){
-        if(removeRoomieRoomies[i] === id){
-            removeRoomieRoomies.splice(i, 1);
-        }
-    }
-    UserModel.insertOne({"id": id}, {"Roomies": roomies});
-    UserModel.insertOne({"id": removeRoomieID}, {"Roomies": removeRoomieRoomies});
+      });
 });
 
 

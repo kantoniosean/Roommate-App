@@ -1,7 +1,6 @@
 import './RoommateFinder.css';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Axios from "axios";
-import Parse from 'parse/dist/parse.min.js';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Card } from 'react-bootstrap'
 

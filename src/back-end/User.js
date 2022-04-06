@@ -1,13 +1,13 @@
 class User {
 
-    User(firstName, lastName, id, email, [results], [roommates], [chores]) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.id = id;
-        this.email = email;
-        this.results = results;
-        this.roommates = roommates;
-        this.chores = chores;
+    User(builder) {
+        this.firstName = builder.firstName;
+        this.lastName = builder.lastName;
+        this.id = builder.id;
+        this.email = builder.email;
+        this.results = builder.results;
+        this.roommates = builder.roommates;
+        this.chores = builder.chores;
         this.setScore(results);
     }
 
@@ -46,13 +46,13 @@ class User {
     }
 
     
-	setScore() {
+	setScore([results]) {
 		let total = 0;
 		let currentScore = 0;
 
 		for(let i = 0; i < this.results.length; i++) {
 			total += 1
-			currentScore += (ans) ? 1 : 0;
+			currentScore += (results[i]) ? 1 : 0;
 		}
 		this.score = ((currentScore+0.0)/total*100).toFixed();
 		return this.score;

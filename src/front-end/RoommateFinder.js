@@ -4,7 +4,7 @@ import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Card, CardGroup } from 'react-bootstrap'
 
-function App() {
+function RoommateFinder() {
   const [listOfUsers, setListOfUsers] = useState([]);
   const[_id, set_id] = useState("");
   const[name, setName] = useState("");
@@ -28,6 +28,7 @@ function App() {
 
   {/*need to test with actual currentUser, but it works with dummy data*/}
   var currentUser = {  "_id": "624cce80ce757e25629f9879",  "name": "Erin",  "username": "eejohnson",  "roomies": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
+  var currUserPref = currentUser.preferences;
   
   const addRoomie = () => {
     Axios.post("http://localhost:3001/addRoomie", {
@@ -52,6 +53,14 @@ function App() {
 
       <CardGroup>
         {listOfUsers.map((user) => {
+          var score = 0;
+
+          for(var i = 0; i < currUserPref.length; i++){
+            if(currUserPref[i] === user.preferences[i]){
+              score++;
+            }
+          }
+          
           return (
             <div>
             <Card border="danger" class="rounded" style={{ width:'15rem', color: '#F2EFE4', backgroundColor:'#F28D8D'}}>

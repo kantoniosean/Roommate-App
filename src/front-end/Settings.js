@@ -35,7 +35,9 @@ function Settings() {
     return (
       <div className="Settings" style={{backgroundColor:'#F26666'}}>
         <img src="https://cdn.discordapp.com/attachments/953028681272549426/953860160688902154/Roomie.png" alt="logo" height="75"></img>
-        <br></br><br></br><br></br>
+        <br></br>
+        <h6 style={{ color: "#F2EFE4", fontFamily:'Monaco' }}>&nbsp; Remove one at a time!</h6>
+        <br></br><br></br>
 
         <CardGroup>
             {listOfRoomies.map((roomie) => {

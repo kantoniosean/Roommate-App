@@ -71,6 +71,20 @@ function Settings() {
                 window.location.href='/ChoreList';
             }}>Open Chore List</Button>
         </div>
+
+        <div>
+            <Button style={{borderRadius: '12px', position: 'absolute', right: 5, top: 50}} variant="danger" onClick={(e2) => {
+                e2.preventDefault();
+                window.location.href='/RoommateFinder';
+            }}>Open Roomie Finder</Button>
+        </div>
+
+        <div>
+            <Button style={{borderRadius: '12px', position: 'absolute', right: 5, top: 95}} variant="danger" onClick={(e2) => {
+                e2.preventDefault();
+                window.location.href='/Preferences';
+            }}>Change Your Preferences!</Button>
+        </div>
       </div>
     );
 }

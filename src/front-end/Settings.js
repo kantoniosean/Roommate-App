@@ -8,11 +8,11 @@ import { Button } from 'react-bootstrap';
 function Settings() {
 
     const removeRoomie = () => {
-        Axios.post("http://localhost:3001/removeRoomie", {
+        /*Axios.post("http://localhost:3001/removeRoomie", {
           roomies
         }).then((response) => {
           alert("ROOMIE REMOVED");
-        });
+        });*/
        };  
     
     return (

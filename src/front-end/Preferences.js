@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Axios from "axios";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 
-function Preferances() {
+function Preferences() {
   const updatePreferences = () => {
     var answers = document.getElementsByTagName("input");
     var preferences = Array.from(answers);
@@ -157,4 +158,4 @@ function Preferances() {
   );
 }
 
-export default Preferances;
+export default Preferences;

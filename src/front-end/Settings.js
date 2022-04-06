@@ -13,13 +13,14 @@ function Settings() {
     
     var currentUser = {  "_id": "624cce80ce757e25629f9879",  "name": "Erin",  "username": "eejohnson",  "roomies": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
     
+    /* populates all users, need to just populate currentUser's roomie's */
     useEffect(() => {
-        Axios.get("http://localhost:3001/getRoomies").then((response) => {
+        Axios.get("http://localhost:3001/getUsers").then((response) => {
             setListOfRoomies(response.data);
         })
     }, []);
 
-    const removeRoomie = () => {
+    /*const removeRoomie = () => {
         Axios.post("http://localhost:3001/removeRoomie", {
             _id,
             name,
@@ -29,7 +30,7 @@ function Settings() {
         }).then((response) => {
           alert("ROOMIE REMOVED");
         });
-       };  
+       };  */
     
     return (
       <div className="Settings" style={{backgroundColor:'#F26666'}}>

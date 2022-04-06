@@ -4,24 +4,8 @@ import pic from './media/roommates.jpg';
 import './style.css';
 import './RegistrationPage.js';
 import Axios from "axios";
-import '../back-end/User';
-import mongoose from 'mongoose';
-const UserModel = require('../back-end/models/Users');
 
 function LoginPage() {
-
-    const [user, setUser] = useState([]);
-    const [inputVal, setInputVal] = useState('');
-
-    let user1 = (userId) => {
-        UserModel.findOne({ id : userId }, (error, data) => {
-            if (error)
-                console.log(error)
-            else
-                console.log(data)
-        })
-        setUser(user1);
-    }
 
     return (
         <>
@@ -31,10 +15,9 @@ function LoginPage() {
             <form>
             <label>enter id: </label>
             <input 
-            type="id" id='id' value = {inputVal} onChange = {e =>
-            setInputVal(e.target.value)}>
+            type="id" id='id>
             </input>
-            <button type='submit' onClick = {user1(inputVal)}> Submit </button>
+            <button type='submit'> Submit </button>
             <br></br>
             <br></br>
             <label>enter password: </label>

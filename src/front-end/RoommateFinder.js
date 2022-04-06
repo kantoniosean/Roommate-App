@@ -59,6 +59,7 @@ function App() {
               <Card.Body  class="card text-center" style={{backgroundColor:'#F28D8D'}}>
                 <Card.Title><br></br>{user.name}</Card.Title>
               </Card.Body>
+              {/* need to fix format for listing preferences */}
               <Button data-toggle="tooltip" data-placement="top" title={user.preferences} variant="outline-danger" onClick={(e1) => {
                 setNewRoomie(user.name);
                 set_id(currentUser._id);

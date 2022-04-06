@@ -36,7 +36,7 @@ app.post("/addRoomie", (req, res) => {
     var currentUser = {
         name: req.body.name,
         username: req.body.username,
-        roomie: req.body.newRoomies,
+        roomies: req.body.newRoomies,
         matches: req.body.matches,
         preferences: req.body.preferences,
     };

@@ -20,7 +20,7 @@ body{
     background-color:rgb(255, 255, 255);
     font-family: monospace;
     font-size: 18px;
-    background-image: url('../img/images.jpg'); 
+    background-image: url('/img/images.jpg'); 
     border-bottom: 2px solid #f0e2e2; /* #f0e2e2;*/
     border-top: 6px solid #f0e2e2;
     border-left: 6px solid #f0e2e2;

@@ -1,5 +1,3 @@
-import React from 'react'
-
 class Question {
 
 	constructor(prompt, value) {
@@ -32,5 +30,3 @@ class TFQ extends Question {
 		return (ans) ? this.value : 0;
 	}
 }
-
-export default Preferences

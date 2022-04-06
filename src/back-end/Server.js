@@ -3,7 +3,6 @@ const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
 const cors = require('cors');
-const http = require('http');
 
 app.use(express.json());
 app.use(cors);
@@ -21,7 +20,7 @@ app.get("/getUsers", (req, res) => {
 });
 
 app.get("/getUser", (req, res) => {
-    UserModel.findOne({ id: userId }, (err, result) => {
+    UserModel.findOne({ username: req.body.username }, (err, result) => {
         if (err)
             res.json(err);
         else {
@@ -30,6 +29,7 @@ app.get("/getUser", (req, res) => {
     });
 });
 
+{/* bug -> will only replace roomie field rather than adding new roomie */}
 app.post("/addRoomie", (req, res) => {
     console.log("req.body", req.body);
     var _id = req.body._id;
@@ -37,7 +37,7 @@ app.post("/addRoomie", (req, res) => {
     var currentUser = {
         name: req.body.name,
         username: req.body.username,
-        roomie: req.body.newRoomies,
+        roomies: req.body.newRoomie,
         matches: req.body.matches,
         preferences: req.body.preferences,
     };
@@ -54,6 +54,12 @@ app.post("/addRoomie", (req, res) => {
           res.send(currentUser);
         }
       });
+});
+
+app.post("/removeRoomie", (req, res) => {
+});
+
+app.post("/updatePreferences", (req, res) => {
 });
 
 

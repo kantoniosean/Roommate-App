@@ -1,17 +1,18 @@
 import './RoommateFinder.css';
-import React, { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button, Card } from 'react-bootstrap'
+import { Button, Card, CardGroup } from 'react-bootstrap'
 
-function RoommateFinder() {
+function App() {
   const [listOfUsers, setListOfUsers] = useState([]);
   const[_id, set_id] = useState("");
   const[name, setName] = useState("");
   const[username, setUsername] = useState("");
-  const[newRoomies, setNewRoomies] = useState([]);
+  const[newRoomie, setNewRoomie] = useState([]);
   const[matches, setMatches] = useState([]);
   const[preferences, setPreferences] = useState([]);
+  const[currRoomies, setCurrRoomies] = useState([]);
 
   {/*const getCurrentUser = async function () {
     const currentUser = await Parse.User.current();
@@ -26,53 +27,67 @@ function RoommateFinder() {
   }, []);
 
   {/*need to test with actual currentUser, but it works with dummy data*/}
-  var currentUser = {  "_id": "622e91374138d42808b0b68d",  "name": "Erin",  "username": "eejohnson",  "roomie": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
+  var currentUser = {  "_id": "624cce80ce757e25629f9879",  "name": "Erin",  "username": "eejohnson",  "roomies": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
   
   const addRoomie = () => {
-    alert("clicked");
     Axios.post("http://localhost:3001/addRoomie", {
       _id,
       name,
       username,
-      newRoomies,
+      currRoomies,
+      newRoomie,
       matches,
       preferences
     }).then((response) => { 
-      alert("ROOMIE ADDED"); 
+      alert("ROOMIE ADDED: " + newRoomie); 
     });
   };
 
   return (
-    <div className="App" style={{backgroundColor:'#F26666'}}>
-      <img src="https://cdn.discordapp.com/attachments/953028681272549426/953860160688902154/Roomie.png" alt="logo" height="50"></img>
-      <br></br><br></br><br></br>
+    <div className="RoommateFinder" style={{backgroundColor:'#F26666'}}>
+      <img src="https://cdn.discordapp.com/attachments/953028681272549426/953860160688902154/Roomie.png" alt="logo" height="75"></img>
+      <br></br>
+      <h6 style={{ color: "#F2EFE4", fontFamily:'Monaco' }}>&nbsp; Add one at a time!</h6>
+      <br></br><br></br>
 
-      <div className='usersDisplay'>
+      <CardGroup>
         {listOfUsers.map((user) => {
           return (
             <div>
-            <Card class="rounded" style={{ width:'15rem', color: '#F2EFE4', backgroundColor:'#F28D8D'}}>
-              <Card.Img src="https://www.kindpng.com/picc/m/73-732812_girl-png-clipart-cute-girl-clipart-transparent-png.png" alt="test" height="150"></Card.Img>
+            <Card border="danger" class="rounded" style={{ width:'15rem', color: '#F2EFE4', backgroundColor:'#F28D8D'}}>
+              <Card.Img src="https://www.kindpng.com/picc/m/73-732812_girl-png-clipart-cute-girl-clipart-transparent-png.png" alt="test"></Card.Img>
               <Card.Body  class="card text-center" style={{backgroundColor:'#F28D8D'}}>
                 <Card.Title><br></br>{user.name}</Card.Title>
               </Card.Body>
-              <Button data-toggle="tooltip" data-placement="top" title={user.preferences} class="rounded" variant="outline-danger" onClick={(event) => {
-                setNewRoomies(user.name);
-                set_id(currentUser["_id"]);
-                setName(currentUser["name"]);
-                setUsername(currentUser["username"]);
-                setMatches(currentUser["matches"]);
-                setPreferences(currentUser["preferences"]);
-                alert("ROOMIE SELECTED: " + user.name);}}>Select Roomie!</Button>
+              {/* need to fix format for listing preferences */}
+              <Button data-toggle="tooltip" data-placement="top" title={user.preferences} variant="outline-danger" onClick={(e1) => {
+                setNewRoomie(user.name);
+                set_id(currentUser._id);
+                setName(currentUser.name);
+                setUsername(currentUser.username);
+                setMatches(currentUser.matches);
+                setPreferences(currentUser.preferences);
+                setCurrRoomies(currentUser.roomies);
+                alert("ROOMIE SELECTED: " + user.name);
+                }}>Select Roomie!</Button>
             </Card>
           </div>
         );
       })}
+      </CardGroup>
+      <br></br>
+
+      <div class="col-md-12 text-center">
+        <Button style={{borderRadius: '12px'}} variant="danger" onClick={addRoomie}>Update Roomies</Button>
       </div>
 
       <div>
-        <Button class="rounded" variant="outline-light" onClick={addRoomie}>Update Roomies</Button>
+        <Button style={{borderRadius: '12px', position: 'absolute', right: 5, top: 5}} variant="danger" onClick={(e2) => {
+          e2.preventDefault();
+          window.location.href='/ChoreList'; {/* not sure if this works /*}
+        }}>Open Chore List</Button>
       </div>
+
     </div>
   );
 }

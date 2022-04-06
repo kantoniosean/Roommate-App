@@ -1,8 +1,8 @@
 import React from 'react'
 import './RoommateFinder'
 import logo from './media/Roomie.png'
-import './back-end/models/Users.js'
-import './back-end/Preferances.js'
+import '../back-end/models/Users.js'
+import '../back-end/Preferences.js'
 import { Button } from 'react-bootstrap';
 
 function Settings() {

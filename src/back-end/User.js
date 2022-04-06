@@ -8,7 +8,7 @@ class User {
         this.results = builder.results;
         this.roommates = builder.roommates;
         this.chores = builder.chores;
-        this.setScore(results);
+        this.setScore(this.results);
     }
 
     getFirst() { return this.firstName };

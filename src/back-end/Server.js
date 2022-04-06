@@ -29,6 +29,7 @@ app.get("/getUser", (req, res) => {
     });
 });
 
+{/* bug -> will only replace roomie field rather than adding new roomie */}
 app.post("/addRoomie", (req, res) => {
     console.log("req.body", req.body);
     var _id = req.body._id;

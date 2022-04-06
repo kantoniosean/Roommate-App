@@ -10,12 +10,6 @@ app.use(cors);
 
 mongoose.connect("mongodb+srv://qyork:Caddie5587@cluster0.fqy0m.mongodb.net/Roommate-App?retryWrites=true&w=majority");
 
-app.post("/createUser", async (req, res) => {
-    const user = req.body;
-    const newUser = new userModel(user);
-    await newUser.save();
-});
-
 app.get("/getUsers", (req, res) => {
     UserModel.find({}, (err, result) => {
         if (err)
@@ -27,7 +21,7 @@ app.get("/getUsers", (req, res) => {
 });
 
 app.get("/getUser", (req, res) => {
-    UserModel.findOne({ id: userId }, (err, result) => {
+    UserModel.findOne({ username: req.body.username }, (err, result) => {
         if (err)
             res.json(err);
         else {
@@ -60,6 +54,12 @@ app.post("/addRoomie", (req, res) => {
           res.send(currentUser);
         }
       });
+});
+
+app.post("/removeRoomie", (req, res) => {
+});
+
+app.post("/updatePreferences", (req, res) => {
 });
 
 

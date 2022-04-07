@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { Button, Card, CardGroup } from 'react-bootstrap'
+import './media/findRoomie.png';
 
 function RoommateFinder() {
   const [listOfUsers, setListOfUsers] = useState([]);
@@ -46,7 +47,7 @@ function RoommateFinder() {
 
   return (
     <div className="RoommateFinder" style={{backgroundColor:'#F26666'}}>
-      <img src="https://cdn.discordapp.com/attachments/953028681272549426/953860160688902154/Roomie.png" alt="logo" height="75"></img>
+      <img src="./media/findRoomie" alt="logo" height="75"></img>
       <br></br>
       <h6 style={{ color: "#F2EFE4", fontFamily:'Monaco' }}>&nbsp; Add one at a time!</h6>
       <br></br><br></br>

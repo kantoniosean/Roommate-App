@@ -3,6 +3,7 @@ const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
 const cors = require('cors');
+const { db } = require("./models/Users");
 
 app.use(express.json());
 app.use(cors);
@@ -56,11 +57,11 @@ app.post("/addRoomie", (req, res) => {
       });
 });
 
-app.post("/removeRoomie", (req, res) => {
-});
+//app.post("/removeRoomie", (req, res) => {
+//});
 
-app.post("/updatePreferences", (req, res) => {
-});
+//app.post("/updatePreferences", (req, res) => {
+//});
 
 /*app.post("/createUser", async (req, res) => {
   let u = new User.UserBuilder(JSON.parse(body).firstName, JSON.parse(body).lastName, JSON.parse(body).id)

@@ -1,32 +1,22 @@
 const mongoose = require('mongoose');
-const Chore = require('../Chore');
-const User = require('../User');
 
 const UserSchema = new mongoose.Schema({
-    firstName: {
+    name: {
         type: String,
+        required: true,
     },
-    lastName: {
+    username: {
         type: String,
+        required: true,
     },
-    id: {
-        type: String,
+    roomies: {
+        type: Array,
+        required: false,
     },
-    email: {
-        type: String,
+    preferences: {
+        type: Array,
+        required: true
     },
-    results: {
-        type: [String],
-    },
-    roommates: {
-        type: [User],
-    },
-    chores: {
-        type: [Chore],
-    },
-    score: {
-        type: Number
-    }
 });
 
 const UserModel = mongoose.model("users", UserSchema)

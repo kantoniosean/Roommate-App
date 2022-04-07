@@ -68,7 +68,7 @@ function RoommateFinder() {
           return (
             <div>
             <Card border="danger" class="rounded" style={{ width:'15rem', color: '#F2EFE4', backgroundColor:'#F28D8D'}}>
-              <Card.Img src="./media/girl.png" alt="test"></Card.Img>
+              <Card.Img src="./media/girl.png" alt="girl"></Card.Img>
               <Card.Body  class="card text-center" style={{backgroundColor:'#F28D8D'}}>
                 <Card.Title><br></br>{user.name}</Card.Title>
               </Card.Body>

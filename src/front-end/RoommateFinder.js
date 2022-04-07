@@ -1,9 +1,12 @@
 import './UserCard.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Button, Card, CardGroup } from 'react-bootstrap';
+
 import { useState, useEffect } from 'react';
 import Axios from "axios";
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { Button, Card, CardGroup } from 'react-bootstrap'
+
 import './media/findRoomie.png';
+import './media/girl.png';
 
 function RoommateFinder() {
   const [listOfUsers, setListOfUsers] = useState([]);
@@ -65,7 +68,7 @@ function RoommateFinder() {
           return (
             <div>
             <Card border="danger" class="rounded" style={{ width:'15rem', color: '#F2EFE4', backgroundColor:'#F28D8D'}}>
-              <Card.Img src="https://www.kindpng.com/picc/m/73-732812_girl-png-clipart-cute-girl-clipart-transparent-png.png" alt="test"></Card.Img>
+              <Card.Img src="./media/girl.png" alt="test"></Card.Img>
               <Card.Body  class="card text-center" style={{backgroundColor:'#F28D8D'}}>
                 <Card.Title><br></br>{user.name}</Card.Title>
               </Card.Body>

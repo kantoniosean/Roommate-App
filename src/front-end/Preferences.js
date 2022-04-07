@@ -5,6 +5,8 @@ import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
 
+import './media/Roomie.png';
+
 function Preferences() {
   const updatePreferences = () => {
     var answers = document.getElementsByTagName("input");
@@ -18,8 +20,8 @@ function Preferences() {
   }
 
   return(
-    <div className="Settings" style={{backgroundColor:'#F26666'}}>
-      <img src='https://cdn.discordapp.com/attachments/953028681272549426/953860160688902154/Roomie.png' alt="logo" height="50"></img>
+    <div className="Preferences" style={{backgroundColor:'#F26666'}}>
+      <img src='./media/Roomie.png' alt="logo" height="50"></img>
 
       <div class="row col-5">
       <h4 class="fw-bold text-center mt-3"> </h4>

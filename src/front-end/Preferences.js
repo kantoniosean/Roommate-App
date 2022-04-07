@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect } from 'react';
 import Axios from "axios";
+import { useState, useEffect } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button } from 'react-bootstrap';
@@ -8,7 +7,7 @@ import { Button } from 'react-bootstrap';
 import './media/Roomie.png';
 
 function Preferences() {
-  const updatePreferences = () => {
+  /*const updatePreferences = () => {
     var answers = document.getElementsByTagName("input");
     var preferences = Array.from(answers);
     
@@ -17,7 +16,7 @@ function Preferences() {
     }).then((response) => {
     alert("PREFERENCES UPDATED"); 
     }); 
-  }
+  }*/
 
   return(
     <div className="Preferences" style={{backgroundColor:'#F26666'}}>
@@ -155,7 +154,7 @@ function Preferences() {
       </form>
       </div>
 
-    <Button class="rounded" variant="outline-light" onClick={updatePreferences}> <a href="/RoommateFinder"></a>Submit</Button>
+    <Button class="rounded" variant="outline-light" /*onClick={updatePreferences}*/> <a href="/RoommateFinder"></a>Submit</Button>
   </div>
   );
 }

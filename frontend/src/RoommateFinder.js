@@ -10,12 +10,12 @@ import girl from './media/girl.png';
 
 import './Settings';
 import './Preferences';
-import './ChoreList';
+// import './ChoreList';
 
 function RoommateFinder() {
   const [listOfUsers, setListOfUsers] = useState([]);
   const[_id, set_id] = useState("");
-  const[name, setName] = useState("");
+  const[firstName, setFirstName] = useState("");
   const[username, setUsername] = useState("");
   const[newRoomie, setNewRoomie] = useState([]);
   const[matches, setMatches] = useState([]);
@@ -31,13 +31,13 @@ function RoommateFinder() {
 
 
   /*need to test with actual currentUser, but it works with dummy data*/
-  var currentUser = {  "_id": "624cce80ce757e25629f9879",  "name": "Erin",  "username": "eejohnson",  "roomies": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
+  var currentUser = {  "_id": "624cce80ce757e25629f9879",  "firstName": "Erin",  "username": "eejohnson",  "roomies": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
   var currUserPref = currentUser.preferences;
   
   const addRoomie = () => {
     Axios.post("http://localhost:3001/addRoomie", {
       _id,
-      name,
+      firstName,
       username,
       currRoomies,
       newRoomie,
@@ -75,7 +75,7 @@ function RoommateFinder() {
               <Button data-toggle="tooltip" data-placement="top" title={user.preferences} variant="outline-danger" onClick={(e1) => {
                 setNewRoomie(user.name);
                 set_id(currentUser._id);
-                setName(currentUser.name);
+                setFirstName(currentUser.firstName);
                 setUsername(currentUser.username);
                 setMatches(currentUser.matches);
                 setPreferences(currentUser.preferences);

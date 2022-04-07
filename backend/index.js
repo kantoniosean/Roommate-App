@@ -2,14 +2,19 @@ const express = require("express");
 const app = express();
 const mongoose = require('mongoose');
 const UserModel = require('./models/Users');
+const routeURL = require('./routes/signin')
 
 const cors = require('cors');
 const { db } = require("./models/Users");
 
+
+
+mongoose.connect("mongodb+srv://qyork:Caddie5587@cluster0.fqy0m.mongodb.net/Roommate-App?retryWrites=true&w=majority", 
+              () => console.log("Database is running"));
+
 app.use(express.json());
 app.use(cors());
-
-mongoose.connect("mongodb+srv://user:woogers@cluster0.qzmqr.mongodb.net/merntut?retryWrites=true&w=majority");
+app.use('/app', routeURL)
 
 app.post("/createUser", async (req, res) => {
   const user = req.body;

@@ -8,7 +8,7 @@ import logo from './media/Roomie.png';
 
 import './RoommateFinder';
 import './Settings';
-import './ChoreList';
+// import './Chores/ChoreList';
 
 function Preferences () {
   const [preferences, setPreferences] = useState([]);
@@ -51,145 +51,145 @@ function Preferences () {
       <p></p>
 
       <div>
-        <h4 class="fw-bold text-center mt-3"> </h4>
+        <h4 className="fw-bold text-center mt-3"> </h4>
 
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Are you looking to rent a house?</p>
+          <p className="fw-bold">Are you looking to rent a house?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifHouse" id="house"/>
-            <label for="house">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifHouse" id="house"/>
+            <label htmlFor="house">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifHouse" id="notHouse" />
-            <label for="notHouse">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifHouse" id="notHouse" />
+            <label htmlFor="notHouse">
               No
             </label>
           </div>
         </form>
 
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Are you looking to rent an apartment?</p>
+          <p className="fw-bold">Are you looking to rent an apartment?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifApt" id="apt" />
-            <label for="apt">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifApt" id="apt" />
+            <label htmlFor="apt">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifApt" id="notApt" />
-            <label for="notApt">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifApt" id="notApt" />
+            <label htmlFor="notApt">
               No
             </label>
           </div>
         </form>
 
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Are you okay with pets?</p>
+          <p className="fw-bold">Are you okay with pets?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifPets" id="pets" />
-            <label for="pets">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifPets" id="pets" />
+            <label htmlFor="pets">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifPets" id="pets" />
-            <label for="noPets">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifPets" id="pets" />
+            <label htmlFor="noPets">
               No
             </label>
           </div>
         </form>
   
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Do you drink?</p>
+          <p className="fw-bold">Do you drink?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifDrinker" id="drinker" />
-            <label for="drinker">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifDrinker" id="drinker" />
+            <label htmlFor="drinker">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifDrinker" id="nonDrinker" />
-            <label for="nonDrinker">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifDrinker" id="nonDrinker" />
+            <label htmlFor="nonDrinker">
               No
             </label>
           </div>
         </form>
 
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Do you smoke?</p>
+          <p className="fw-bold">Do you smoke?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifSmoker" id="smoker" />
-            <label for="smoker">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifSmoker" id="smoker" />
+            <label htmlFor="smoker">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifSmoker" id="nonSmoker" />
-            <label for="nonSmoker">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifSmoker" id="nonSmoker" />
+            <label htmlFor="nonSmoker">
               No
             </label>
           </div>
         </form>
 
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Are you okay with having people over?</p>
+          <p className="fw-bold">Are you okay with having people over?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifPartier" id="partier" />
-            <label for="partier">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifPartier" id="partier" />
+            <label htmlFor="partier">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifPartier" id="nonPartier" />
-            <label for="nonPartier">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifPartier" id="nonPartier" />
+            <label htmlFor="nonPartier">
               No
             </label>
           </div>
         </form>
 
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Are you a morning person?</p>
+          <p className="fw-bold">Are you a morning person?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifMornings" id="mornings" />
-            <label for="mornings">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifMornings" id="mornings" />
+            <label htmlFor="mornings">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
+          <div className="form-check mb-2">
             <label> 
-              <input class="form-check-input" type="radio" name="ifMornings" id="nonMornings" />
+              <input className="form-check-input" type="radio" name="ifMornings" id="nonMornings" />
               No
             </label>
           </div>
         </form>
 
         <form style={{color:"#F2C4C4"}}>
-          <p class="fw-bold">Are you a night owl?</p>
+          <p className="fw-bold">Are you a night owl?</p>
 
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifNights" id="nights" />
-            <label for="mornings">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifNights" id="nights" />
+            <label htmlFor="mornings">
               Yes
             </label>
           </div>
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="ifNights" id="nonNights" />
-            <label for="nonNights">
+          <div className="form-check mb-2">
+            <input className="form-check-input" type="radio" name="ifNights" id="nonNights" />
+            <label htmlFor="nonNights">
               No
             </label>
           </div>
 
-          <div class="col-md-12 text-center">
-            <Button class="rounded" variant="danger" onClick={updatePreferences}>Update Preferences</Button>
+          <div className="col-md-12 text-center">
+            <Button className="rounded" variant="danger" onClick={updatePreferences}>Update Preferences</Button>
           </div>
         </form>
         <br></br>

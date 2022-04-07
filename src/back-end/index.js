@@ -62,17 +62,6 @@ app.post("/removeRoomie", (req, res) => {
 app.post("/updatePreferences", (req, res) => {
 });
 
-
-// Server handles working with DB and Client Side. I can getUsers from DB and also post new users added from client.
-// when client logs in with email and password, we get those attributes, look for them in the DB, and update accordingly
-// if client is new (not in DB), we add them to the DB and load a default view of the app (asking them to answer questions on RoommateFinder and an empty ChoreList)
-// if client exists, we load app based on their chore list and roommate questions. based on their answers, we pull diff users from the DB and load them to RoommateFinder
-
-// server gets a new event with login, gets email and pw, looks for user, and sends info back to the client side on how to render.
-// this may eliminate a need for reg manager.
-
-// what classes need access to DB: ChoreManager for adding and deleting chores from user list, RoommateManager for displaying possible roommates based off Users questions
-
 app.post("/createUser", async (req, res) => {
     let u = new User.UserBuilder(JSON.parse(body).firstName, JSON.parse(body).lastName, JSON.parse(body).id, JSON.parse(body).email)
         .results(JSON.parse(body).result)
@@ -85,7 +74,6 @@ app.post("/createUser", async (req, res) => {
     await newUser.save();
     res.json(user)
 });
-
 
 app.listen(3001, () => {
     console.log("Server is running")

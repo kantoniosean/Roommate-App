@@ -1,6 +1,8 @@
-import React from 'react'
-import logo from './media/Roomie.png'
-import './style.css'
+import { useState, useEffect } from 'react';
+import Axios from "axios";
+
+import logo from './media/Roomie.png';
+import './style.css';
 
 function RegistrationPage() {
     return(
@@ -30,7 +32,7 @@ function RegistrationPage() {
             <input className="acc-button" type="submit" id="button" value="Create Account"/>
         </form>
         </>
-    )
+    );
 }
 
 export default RegistrationPage

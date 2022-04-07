@@ -62,18 +62,16 @@ app.post("/removeRoomie", (req, res) => {
 app.post("/updatePreferences", (req, res) => {
 });
 
-app.post("/createUser", async (req, res) => {
-    let u = new User.UserBuilder(JSON.parse(body).firstName, JSON.parse(body).lastName, JSON.parse(body).id, JSON.parse(body).email)
-        .results(JSON.parse(body).result)
-        .roommates(JSON.parse(body).roommates)
-        .chores(JSON.parse(body).chores)
-        .build();
-    const user = req.body;
-    user.score = u.getScore();
-    const newUser = new UserModel(user);
-    await newUser.save();
-    res.json(user)
-});
+/*app.post("/createUser", async (req, res) => {
+  let u = new User.UserBuilder(JSON.parse(body).firstName, JSON.parse(body).lastName, JSON.parse(body).id)
+      .results(JSON.parse(body).result)
+      .roommates(JSON.parse(body).roommates)
+      .build();
+  const user = req.body;
+  const newUser = new UserModel(user);
+  await newUser.save();
+  res.json(user)
+});*/
 
 app.listen(3001, () => {
     console.log("Server is running")

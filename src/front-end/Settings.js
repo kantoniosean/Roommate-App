@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, CardGroup } from 'react-bootstrap';
-import './media/roomie.png';
+import './media/Roomie.png';
 
 function Settings() {
     const [listOfRoomies, setListOfRoomies] = useState([]);
@@ -36,7 +36,7 @@ function Settings() {
     
     return (
       <div className="Settings" style={{backgroundColor:'#F26666'}}>
-        <img src="./media/roomie.png" alt="logo" height="75"></img>
+        <img src="./media/Roomie.png" alt="logo" height="75"></img>
         <br></br>
         <h6 style={{ color: "#F2EFE4", fontFamily:'Monaco' }}>&nbsp; Remove one at a time!</h6>
         <br></br><br></br>

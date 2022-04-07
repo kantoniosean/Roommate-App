@@ -32,7 +32,7 @@ function LoginPage() {
         </div>
         <img src={pic} className='picture' alt="picture"/>
         </>
-    )
+    );
 }
 
 export default LoginPage

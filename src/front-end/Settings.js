@@ -1,3 +1,4 @@
+import './UserCard.css';
 import { useState, useEffect } from 'react';
 import Axios from "axios";
 import 'bootstrap/dist/css/bootstrap.min.css'

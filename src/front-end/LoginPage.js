@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import Axios from "axios";
+
 import logo from './media/Roomie.png';
 import pic from './media/roommates.jpg';
 import './style.css';
+
 import './RegistrationPage.js';
-import Axios from "axios";
 
 function LoginPage() {
 

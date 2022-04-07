@@ -13,12 +13,12 @@ import './Settings';
 function Preferences () {
   const [preferences, setPreferences] = useState([]);
   const[_id, set_id] = useState("");
-  const[name, setName] = useState("");
+  const[firstName, setFirstName] = useState("");
   const[username, setUsername] = useState("");
   const[roomies, setRoomies] = useState([]);
 
   /*need to test with actual currentUser, but it works with dummy data*/
-  var currentUser = {  "_id": "624cce80ce757e25629f9879",  "name": "Erin",  "username": "eejohnson",  "roomies": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
+  var currentUser = {  "_id": "624cce80ce757e25629f9879",  "firstName": "Erin",  "username": "eejohnson",  "roomies": [],  "matches": [    "Pedro"  ],  "preferences": [    "hobbies",    "games"  ]};
   var questions = ["ifHouse", "ifApt", "ifPets", "ifDrinker", "ifSmoker", "ifPartier", "ifMornings", "ifNights"];
   var answers = [];
 
@@ -30,13 +30,13 @@ function Preferences () {
       
     setPreferences(answers);
     set_id(currentUser._id);
-    setName(currentUser.name);
+    setFirstName(currentUser.firstName);
     setUsername(currentUser.username);
     setRoomies(currentUser.roomies);
 
     Axios.post("http://localhost:3001/setPreferences", {
       _id,
-      name,
+      firstName,
       username,
       roomies,
       preferences

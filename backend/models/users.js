@@ -26,7 +26,6 @@ const UserSchema = new mongoose.Schema({
 
     preferences: {
         type: Array,
-        required: true
     },
 
     signOut: {

@@ -1,7 +1,6 @@
 import './UserCard.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button, Card, CardGroup } from 'react-bootstrap';
-
 import { useState, useEffect } from 'react';
 import Axios from "axios";
 
@@ -68,19 +67,19 @@ function RoommateFinder() {
             <Card border="danger" class="rounded" style={{ width:'15rem', color: '#F2EFE4', backgroundColor:'#F28D8D'}}>
               <Card.Img src={girl} alt="girl"></Card.Img>
               <Card.Body  class="card text-center" style={{backgroundColor:'#F28D8D'}}>
-                <Card.Title><br></br>{user.name}</Card.Title>
+                <Card.Title><br></br>{user.firstName}</Card.Title>
                 <Card.Text>Preference Score: {score}</Card.Text>
               </Card.Body>
               {/*preference listing needs to be formatted*/}
               <Button data-toggle="tooltip" data-placement="top" title={user.preferences} variant="outline-danger" onClick={(e1) => {
-                setNewRoomie(user.name);
+                setNewRoomie(user.firstName);
                 set_id(currentUser._id);
                 setFirstName(currentUser.firstName);
                 setUsername(currentUser.username);
                 setMatches(currentUser.matches);
                 setPreferences(currentUser.preferences);
                 setCurrRoomies(currentUser.roomies);
-                alert("ROOMIE SELECTED: " + user.name);
+                alert("ROOMIE SELECTED: " + user.firstName);
                 }}>Select Roomie!</Button>
             </Card>
           </div>

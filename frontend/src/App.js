@@ -5,7 +5,7 @@ import RoommateFinder from './RoommateFinder';
 import Preferences from './Preferences';
 import RegistrationPage from './RegistrationPage';
 import Settings from "./Settings";
-// import ChoresList from './Chores/ChoresList';
+// import ChoresList from './ChoresList';
 
 function App() {
     return (

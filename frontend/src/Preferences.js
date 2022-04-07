@@ -11,7 +11,7 @@ import './Settings';
 import './ChoreList';
 
 function Preferences () {
-  const [preferences, setPreferences] = ([]);
+  const [preferences, setPreferences] = useState([]);
   const[_id, set_id] = useState("");
   const[name, setName] = useState("");
   const[username, setUsername] = useState("");
@@ -34,14 +34,14 @@ function Preferences () {
     setUsername(currentUser.username);
     setRoomies(currentUser.roomies);
 
-    Axios.post("http://localhost:3001/updatePreferences", {
-      preferences,
+    Axios.post("http://localhost:3001/setPreferences", {
       _id,
       name,
       username,
-      roomies
+      roomies,
+      preferences
     }).then((response) => {
-    alert("PREFERENCES UPDATED"); 
+      alert("PREFERENCES UPDATED"); 
     }); 
   }
 

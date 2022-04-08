@@ -77,7 +77,7 @@ const auth = router.post('/login', (req, res) => {
     })
 })
 
-router.get('getInfo', auth, (req, res) => {
+router.get('/getInfo', auth, (req, res) => {
     var { firstName, lastName, username, password} = req.body
     if(auth) {
         User.findOne({ username: username})

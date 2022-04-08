@@ -1,6 +1,3 @@
 # roommate-app
-to run:
-- cd frontend -> npm start
+- A MERN Stack Project that user authentication and regustration. Allows the user to added preferences to look for a roommate and can keep track of mutual chores.
 
-- open second terminal
-- cd backend -> npm start
